@@ -3,8 +3,17 @@
 # ~~~~
 
 # Home page
-GET     /                 	controllers.Application.index
+GET     /                 	              controllers.Application.index
+GET     /productArgs                      controllers.Application.product(prodType, num: Int)
+GET     /product/:prodType/:num           controllers.Application.product(prodType, num: Int)
+GET     /productRE/$prodType<[a-z]{2}\d\d>/:num           controllers.Application.product(prodType, num: Int)
 
+GET     /login1                           controllers.TaskList1.login
+GET     /validateGet                      controllers.TaskList1.validateLoginGet(username, password)
+
++ nocsrf
+POST     /validatePost                     controllers.TaskList1.validateLoginPost
+GET     /taskList1                        controllers.TaskList1.taskList
 # Prefix must match `play.assets.urlPrefix`
-GET        /assets/*file                 controllers.Assets.at(file)
-GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                  controllers.Assets.at(file)
+GET        /versionedAssets/*file         controllers.Assets.versioned(path="/public", file: Asset)
