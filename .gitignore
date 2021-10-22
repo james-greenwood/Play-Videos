@@ -32,3 +32,5 @@ shared/.jvm
 bin/
 .metals
 .vscode
+.bloop
+metals.sbt
